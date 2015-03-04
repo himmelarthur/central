@@ -2,7 +2,6 @@
   "name": "central",
   "version": "0.0.0",
   "description": "An isomorphic module project based on Backbone.js",
-
   "author": {
     "name": "Arthur Himmel",
     "email": "himmel.arthur@gmail.com",
@@ -17,7 +16,9 @@
     "central",
     "isomorphic"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.12.2"
+  },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.10.0",

@@ -1,4 +1,10 @@
 'use strict';
-module.exports = function (str) {
-  console.log(str || 'Rainbow');
+
+var Server = require('./server/server');
+
+exports.Server = Server;
+
+exports.createServer = function () {
+    console.log('created server');
+    return new Server();
 };
