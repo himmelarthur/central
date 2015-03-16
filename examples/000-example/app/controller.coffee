@@ -1,17 +1,16 @@
 "use strict"
 
 BaseController = require('../../../shared/controller.coffee')
+IndexView = require('./views/index')
+LoginView = require('./views/login')
+
 
 class Controller extends BaseController
 
     index: (params) ->
-        IndexView = require('./views/index')
-        indexView = new IndexView()
-        @renderer.render(indexView)
+        @renderView(IndexView)
 
     login: (params) ->
-        LoginView = require('./views/login')
-        loginView = new LoginView()
-        @renderer.render(loginView)
+        @renderView(LoginView)
 
 module.exports = Controller

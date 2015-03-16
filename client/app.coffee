@@ -1,6 +1,6 @@
 "use strict"
 
-Backbone = require('backbone')
+Backbone = require('./backbone')
 _ = require('underscore')
 $ = require('jquery')
 util = require('./util')

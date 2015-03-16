@@ -1,10 +1,7 @@
 "use strict";
 
 var _ = require('lodash'),
-    fs = require('fs'),
-    path = require('path'),
-    jade = require('jade'),
-    View = require('../../server/backbone').View;
+    View = require('backbone').View;
 
 module.exports = View.extend({
 
