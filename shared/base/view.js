@@ -1,31 +1,47 @@
 "use strict";
 
 var _ = require('lodash'),
-    View = require('../backbone').View;
+    fs = require('fs'),
+    path = require('path'),
+    jade = require('jade'),
+    View = require('../../server/backbone').View;
 
 module.exports = View.extend({
 
     constructor: function (options) {
         this.options = _.extend(this.options || {}, options || {});
+        this.locals = options.locals;
     },
 
     template: null,
 
     getHtml: function () {
-        var template = this.getTemplate();
         var data = this.getData();
-        return template(data);
+        var template = this.getTemplatePath();
+        var fn = jade.compile(fs.readFileSync(template, 'utf-8'), {
+            filename: template
+        });
+        return fn(data);
+    },
+
+    getHtmlClient: function () {
+        var data = this.getData();
+        var template = this.getTemplatePath();
+        var fn = require(template);
+        return fn(data);
     },
 
     getData: function () {
+        var data = _.extend({}, this.locals);
         if (!this.model) {
-            return {};
+            return data;
         }
-        return this.model.toJSON();
+        return _.extend(data, this.model.toJSON());
     },
 
-    getTemplate: function () {
-        return require(this.options.templatesPath + this.template);
+    getTemplatePath: function () {
+        console.log(this.options.templatesPath, this.template)
+        return path.join(this.options.templatesPath, this.template);
     }
 
 });

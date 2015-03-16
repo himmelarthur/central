@@ -2,15 +2,18 @@
 
 var _ = require('lodash'),
     express = require('express'),
+    jade = require('jade'),
+    CoffeeScript = require('coffee-script/register'),
     Router = require('./router'),
-    Renderer = require('./renderer');
+    Renderer = require('./renderer.coffee');
 
 function Server (options) {
 
     var defaultOptions = {
         port: 3030,
         viewsPath: process.cwd() + '/app/views/',
-        templatesPath: process.cwd() + '/app/templates/'
+        templatesPath: process.cwd() + '/app/templates/',
+        templateAdapter: jade
     };
 
     options = options || defaultOptions;
@@ -18,17 +21,32 @@ function Server (options) {
 
     this.expressApp = express();
 
-    this.renderer = new Renderer(this.options);
-
     this.expressApp.set('views', this.options.viewsPath);
     this.expressApp.set('view engine', 'js');
-    this.expressApp.engine('js', this.renderer.render);
-
-    this.router = new Router(this.options);
 
 }
 
 Server.prototype.configure = function (options) {
+
+    var defaultOptions = {
+        routes: [],
+        staticFolder: null
+    };
+
+    options = _.extend(defaultOptions, options);
+
+    this.options.routes = options.routes
+
+    if (!options.staticFolder) {
+        throw new Error('Missing static Folder');
+    }
+    this.expressApp.use(express.static(options.staticFolder));
+
+    this.renderer = new Renderer(this.options);
+    this.expressApp.engine('js', this.renderer.render);
+
+    this.router = new Router(this.options);
+
     this.router.buildRoutes(options.routes);
     this.registerRoutes();
 }
