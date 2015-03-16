@@ -20,7 +20,5 @@ ClientRouter = Backbone.Router.extend
 
     getHandler: (view) ->
         -> @controller[view]()
-        # viewPath = @options.viewsPath + view
-        # @renderer.render(viewPath)
 
 module.exports = ClientRouter
