@@ -1,4 +1,5 @@
-var central = require('../../index'),
+var requireJade = require('require-jade'),
+    central = require('../../index'),
     routes = require('./app/routes');
 
 if (require.main === module) {

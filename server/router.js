@@ -21,7 +21,6 @@ Router.prototype.addRoutes = function (routes) {
 
 Router.prototype.getHandler = function (route) {
     return function (req, res, next) {
-        console.log(route.view);
         res.render(route.view, {}, function (err, html) {
             if (err) return next(err);
             res.type('html').end(html);

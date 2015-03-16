@@ -8,8 +8,7 @@ ClientRouter = Backbone.Router.extend
 
     initialize: (@options) ->
         @appViewContainer = @options.appView
-        @renderer = @options.renderer
-        @bindRoutes(@options.routes)
+        @controller = @options.controller
 
     bindRoutes: (routes) ->
         _.each(routes, (route) ->
@@ -20,7 +19,8 @@ ClientRouter = Backbone.Router.extend
         , @)
 
     getHandler: (view) ->
-        viewPath = @options.viewsPath + view
-        @renderer.render(viewPath)
+        -> @controller[view]()
+        # viewPath = @options.viewsPath + view
+        # @renderer.render(viewPath)
 
 module.exports = ClientRouter

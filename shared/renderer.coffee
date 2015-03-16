@@ -1,6 +1,7 @@
 "use strict"
 
-_ = require('lodash')
+path = require('path')
+requireJade = require('require-jade')
 
 class Renderer
 
@@ -10,8 +11,9 @@ class Renderer
 
     getOptions: -> {}
 
-    render: (viewPath, data, cb) ->
-        cb(null, @getView(viewPath, @getOptions(data)).getHtml())
+    getLayout: (data) ->
+        layout = require(path.join(@options.templatesPath, 'layout.jade'))
+        layout(data)
 
     getView: (viewPath, options) ->
         View = require(viewPath)

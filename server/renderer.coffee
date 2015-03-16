@@ -1,6 +1,7 @@
 "use strict"
 
 _ = require('lodash')
+cheerio = require('cheerio')
 BaseRenderer = require('../shared/renderer.coffee')
 
 class ServerRenderer extends BaseRenderer
@@ -11,5 +12,14 @@ class ServerRenderer extends BaseRenderer
                 routes: @options.routes
                 viewsPath: @options.viewsPath
                 templatesPath: @options.templatesPath
+
+    render: (viewPath, data, cb) ->
+        options = @getOptions(data)
+        layout = @getLayout(options)
+        $ = cheerio.load(layout)
+        view = @getView(viewPath, options)
+        $('body').html(view.getHtml())
+        cb(null, $.html())
+
 
 module.exports = ServerRenderer

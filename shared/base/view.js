@@ -10,25 +10,15 @@ module.exports = View.extend({
 
     constructor: function (options) {
         this.options = _.extend(this.options || {}, options || {});
-        this.locals = options.locals;
+        this.locals = this.options.locals;
     },
 
     template: null,
 
     getHtml: function () {
         var data = this.getData();
-        var template = this.getTemplatePath();
-        var fn = jade.compile(fs.readFileSync(template, 'utf-8'), {
-            filename: template
-        });
-        return fn(data);
-    },
-
-    getHtmlClient: function () {
-        var data = this.getData();
-        var template = this.getTemplatePath();
-        var fn = require(template);
-        return fn(data);
+        var template = this.getTemplate();
+        return template(data);
     },
 
     getData: function () {
@@ -39,9 +29,8 @@ module.exports = View.extend({
         return _.extend(data, this.model.toJSON());
     },
 
-    getTemplatePath: function () {
-        console.log(this.options.templatesPath, this.template)
-        return path.join(this.options.templatesPath, this.template);
+    getTemplate: function () {
+        return this.template;
     }
 
 });

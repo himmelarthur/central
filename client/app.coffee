@@ -16,16 +16,21 @@ ClientApp = Backbone.Model.extend
             routes: {}
         , options
 
-        @appViewContainer = new AppViewContainer options
+        throw new Error('No Controller specified') unless @controller
 
-        @renderer = new Renderer(options)
+        appViewContainer = new AppViewContainer options
+
+        @renderer = new Renderer(appViewContainer, options)
+
+        @controller.renderer = @renderer
 
         @router = new ClientRouter
-            appView: @appViewContainer
             routes: options.routes
-            renderer: @renderer
             templatesPath: options.templatesPath
             viewsPath: options.viewsPath
+            controller: @controller
+
+        @router.bindRoutes(options.routes)
 
         Backbone.history.start pushState: on
 

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "coffee-script": "^1.9.1",
-    "jadeify": "^4.1.0"
+    "jadeify": "^4.1.0",
+    "require-jade": "0.0.1"
   }
 }

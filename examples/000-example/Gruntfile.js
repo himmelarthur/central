@@ -16,19 +16,6 @@ module.exports = function(grunt) {
       app: {
         src: [ 'app/app.js' ],
         dest: 'public/script.js'
-      },
-      views: {
-        src: [ 'app/views/**/*.{js,coffee}' ],
-        dest: 'public/views.js'
-      }
-    },
-    watch: {
-      js: {
-        files: ['./**/*.js'],
-        tasks: ['default'],
-        options: {
-          livereload: true
-        }
       }
     }
   });
