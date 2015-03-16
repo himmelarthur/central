@@ -2,7 +2,7 @@
 
 module.exports = [
     {
-        path: '',
+        path: '/',
         view: 'index'
     },
     {

@@ -4,7 +4,8 @@ var central = require('../../index'),
 if (require.main === module) {
     var server = central.createServer();
     server.configure({
-        routes: routes
+        routes: routes,
+        staticFolder: __dirname + '/public'
     });
     server.start();
 }

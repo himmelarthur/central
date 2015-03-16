@@ -4,6 +4,6 @@ var BaseView = require('../../../../shared/base/view');
 
 module.exports = BaseView.extend({
 
-    template: 'login'
+    template: 'login.jade'
 
 });
