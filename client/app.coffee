@@ -1,8 +1,8 @@
 "use strict"
 
-Backbone = require('./backbone')
+Backbone = require('../shared/backbone')
 _ = require('underscore')
-$ = require('jquery')
+$ = Backbone.$
 util = require('./util')
 AppViewContainer = require('./app_view_container')
 ClientRouter = require('./router.coffee')

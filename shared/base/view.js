@@ -1,11 +1,11 @@
 "use strict";
 
 var _ = require('lodash'),
-    View = require('backbone').View;
+    View = require('../backbone.coffee').View;
 
 module.exports = View.extend({
 
-    constructor: function (options) {
+    initialize: function (options) {
         this.options = _.extend(this.options || {}, options || {});
         this.locals = this.options.locals;
     },

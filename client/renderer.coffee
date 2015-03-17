@@ -10,6 +10,7 @@ class ClientRenderer extends BaseRenderer
     render: (view, data, cb = ->) ->
         html = view.getHtml()
         @appViewContainer.$el.html(html)
+        view.setElement(@appViewContainer.$el)
         cb(null, html)
 
 

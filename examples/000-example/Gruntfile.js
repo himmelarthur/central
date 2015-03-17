@@ -17,6 +17,12 @@ module.exports = function(grunt) {
         src: [ 'app/app.js' ],
         dest: 'public/script.js'
       }
+    },
+    watch: {
+      js: {
+        files: [ 'app/**/*.{js,coffee}' ],
+        tasks: ['browserify:app']
+      }
     }
   });
 

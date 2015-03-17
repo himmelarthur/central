@@ -21,5 +21,8 @@ class ServerRenderer extends BaseRenderer
         $('body').html(view.getHtml())
         cb(null, $.html())
 
+    getView: (viewPath, options) ->
+        View = require(viewPath)
+        new View(options)
 
 module.exports = ServerRenderer

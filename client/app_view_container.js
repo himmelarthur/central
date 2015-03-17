@@ -1,6 +1,6 @@
 "use strict";
 
-var Backbone = require('./backbone');
+var BaseView = require('../shared/base/view');
 
 var AppViewContainer = Backbone.View.extend({
 
