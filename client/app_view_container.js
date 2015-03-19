@@ -2,7 +2,7 @@
 
 var BaseView = require('../shared/base/view');
 
-var AppViewContainer = Backbone.View.extend({
+var AppViewContainer = BaseView.extend({
 
 });
 

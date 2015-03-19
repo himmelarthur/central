@@ -1,6 +1,6 @@
 "use strict"
 
-Backbone = require('backbone')
+Backbone = require('../shared/backbone.coffee')
 _ = require('underscore')
 util = require('./util')
 
