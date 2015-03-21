@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "browserify": "^7.0.0",
+    "character-parser": "^1.2.2",
+    "coffeeify": "^1.0.0",
+    "constantinople": "^3.0.1",
+    "grunt-browserify": "^3.5.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-watch": "^0.6.1",
+    "jadeify": "^4.1.0",
+    "remapify": "^1.4.4",
+    "transformers": "^3.1.0",
+    "void-elements": "^2.0.1",
+    "with": "^4.0.1"
+  },
+  "dependencies": {
+    "central": "git://github.com/himmelarthur/central.git",
+    "coffee-script": "^1.9.1",
+    "jadeify": "^4.1.0",
+    "jquery": "^2.1.3",
+    "require-jade": "0.0.1"
+  }
+}

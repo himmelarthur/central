@@ -1,0 +1,14 @@
+html
+    head
+    body
+    script(src="/script.js")
+    script.
+        var locals = !{JSON.stringify(locals)};
+        (function () {
+            new Application({
+                el: 'body',
+                routes: locals.routes,
+                viewsPath: locals.viewsPath,
+                templatesPath: locals.templatesPath
+            });
+        }());
