@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('undescore'),
+var _ = require('underscore'),
     View = require('../backbone.coffee').View;
 
 module.exports = View.extend({
