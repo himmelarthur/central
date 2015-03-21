@@ -1,6 +1,6 @@
 {
   "name": "central",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An isomorphic module project based on Backbone.js",
   "author": {
     "name": "Arthur Himmel",
