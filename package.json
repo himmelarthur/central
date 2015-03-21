@@ -1,6 +1,6 @@
 {
   "name": "central",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "An isomorphic module project based on Backbone.js",
   "author": {
     "name": "Arthur Himmel",
@@ -41,6 +41,9 @@
     "browser": "browserify index.js > browser.js"
   },
   "browserify": {
-    "transform": ["coffeeify", "jadeify"]
+    "transform": [
+      "coffeeify",
+      "jadeify"
+    ]
   }
 }
