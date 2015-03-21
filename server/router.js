@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('central');
+var _ = require('underscore');
 
 function Router (options) {
     this.options = options;
