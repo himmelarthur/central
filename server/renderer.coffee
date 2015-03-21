@@ -1,6 +1,6 @@
 "use strict"
 
-_ = require('lodash')
+_ = require('underscore')
 cheerio = require('cheerio')
 BaseRenderer = require('../shared/renderer.coffee')
 

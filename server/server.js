@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('lodash'),
+var _ = require('central'),
     express = require('express'),
     jade = require('jade'),
     CoffeeScript = require('coffee-script/register'),
