@@ -16,8 +16,7 @@ function Server (options) {
         templateAdapter: jade
     };
 
-    options = options || defaultOptions;
-    this.options = _.defaults(options, defaultOptions);
+    this.options = _.extend(defaultOptions, options);
 
     this.expressApp = express();
 
