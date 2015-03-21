@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('central'),
+var _ = require('underscore'),
     express = require('express'),
     jade = require('jade'),
     CoffeeScript = require('coffee-script/register'),
