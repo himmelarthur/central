@@ -44,7 +44,13 @@ Server.prototype.configure = function (options) {
     this.renderer = new Renderer(this.options);
     this.expressApp.engine('js', this.renderer.render);
 
-    this.router = new Router(this.options);
+    if (!options.controller) {
+        throw new Error('Missing controller');
+    }
+
+    this.controller = new options.controller();
+
+    this.router = new Router(_.extend(this.options, {controller: this.controller}));
 
     this.router.buildRoutes(options.routes);
     this.registerRoutes();

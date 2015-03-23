@@ -13,17 +13,19 @@ module.exports = View.extend({
     template: null,
 
     getHtml: function () {
-        var data = this.getData();
-        var template = this.getTemplate();
+        var data = this.getData(),
+            template = this.getTemplate();
         return template(data);
     },
 
     getData: function () {
-        var data = _.extend({}, this.locals);
-        if (!this.model) {
-            return data;
-        }
-        return _.extend(data, this.model.toJSON());
+        var data,
+            modelData,
+            collectionData;
+        data = _.extend({}, this.locals);
+        modelData = this.model ? {model: this.model.toJSON()} : {};
+        collectionData = this.collection ? {collection: this.collection.toJSON()} : {};
+        return _.extend(data, modelData, collectionData);
     },
 
     getTemplate: function () {

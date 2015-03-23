@@ -1,9 +1,13 @@
-"use strict";
+'use strict';
 
 var _ = require('underscore');
 
 function Router (options) {
     this.options = options;
+    if (!options.controller) {
+        throw new Error('No controller specified');
+    }
+    this.controller = this.options.controller;
     this.routes = [];
 }
 
@@ -20,10 +24,13 @@ Router.prototype.addRoutes = function (routes) {
 };
 
 Router.prototype.getHandler = function (route) {
+    var controllerHandler = this.controller[route.view];
     return function (req, res, next) {
-        res.render(route.view, {}, function (err, html) {
-            if (err) return next(err);
-            res.type('html').end(html);
+        controllerHandler(function (data) {
+            res.render(route.view, data, function (err, html) {
+                if (err) return next(err);
+                res.type('html').end(html);
+            });
         });
     };
 };
