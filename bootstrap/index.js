@@ -1,12 +1,12 @@
-var requireJade = require('require-jade'),
-    central = require('central'),
-    routes = require('./app/routes');
+var central = require('central'),
+    routes = require('./app/routes'),
+    Controller = require('./app/controller.coffee'),
+    server = central.createServer();
 
-if (require.main === module) {
-    var server = central.createServer();
-    server.configure({
-        routes: routes,
-        staticFolder: __dirname + '/public'
-    });
-    server.start();
-}
+server.configure({
+    routes: routes,
+    staticFolder: __dirname + '/public',
+    controller: new Controller(),
+    rootEl: '.content'
+});
+server.start();

@@ -1,12 +1,14 @@
 html
     head
     body
+        h1 Hello World!
+        .content
     script(src="/script.js")
     script.
         var locals = !{JSON.stringify(locals)};
         (function () {
             new Application({
-                el: 'body',
+                el: '.content',
                 routes: locals.routes,
                 viewsPath: locals.viewsPath,
                 templatesPath: locals.templatesPath

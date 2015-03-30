@@ -6,7 +6,7 @@ module.exports = [
         view: 'index'
     },
     {
-        path: '/login',
-        view: 'login'
+        path: '/call',
+        view: 'call'
     }
 ];
