@@ -4,7 +4,7 @@ var _ = require('underscore'),
     express = require('express'),
     jade = require('jade'),
     CoffeeScript = require('coffee-script/register'),
-    Router = require('./router'),
+    Router = require('./router.coffee'),
     Renderer = require('./renderer.coffee');
 
 function Server (options) {
@@ -17,12 +17,10 @@ function Server (options) {
     };
 
     this.options = _.extend(defaultOptions, options);
-
     this.expressApp = express();
 
     this.expressApp.set('views', this.options.viewsPath);
     this.expressApp.set('view engine', 'js');
-
 }
 
 Server.prototype.configure = function (options) {
@@ -41,14 +39,14 @@ Server.prototype.configure = function (options) {
     }
     this.expressApp.use(express.static(options.staticFolder));
 
-    this.renderer = new Renderer(this.options);
+    this.renderer = new Renderer(_.extend(this.options, options));
     this.expressApp.engine('js', this.renderer.render);
 
     if (!options.controller) {
         throw new Error('Missing controller');
     }
 
-    this.controller = new options.controller();
+    this.controller = options.controller;
 
     this.router = new Router(_.extend(this.options, {controller: this.controller}));
 
@@ -58,6 +56,7 @@ Server.prototype.configure = function (options) {
 
 Server.prototype.start = function () {
     this.expressApp.listen(this.options.port);
+    console.info("Central Server good to go, listening on port", this.options.port);
 }
 
 Server.prototype.registerRoutes = function () {

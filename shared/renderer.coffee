@@ -1,7 +1,7 @@
 "use strict"
 
-path = require('path')
-requireJade = require('require-jade')
+_ = require('underscore')
+
 
 class Renderer
 
@@ -9,10 +9,10 @@ class Renderer
         @options = options
         @render = @render.bind(@)
 
-    getOptions: -> {}
+    getOptions: (viewOptions) ->
+        _.extend {}, @options, viewOptions
 
-    getLayout: (data) ->
-        layout = require(path.join(@options.templatesPath, 'layout.jade'))
-        layout(data)
+    getView: (View, viewOptions) ->
+        new View(viewOptions)
 
 module.exports = Renderer

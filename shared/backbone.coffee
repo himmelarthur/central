@@ -7,6 +7,8 @@ stubbedMethods = ['on', 'off', 'bind', 'unbind', 'delegate', 'undelegate', 'live
 _.each stubbedMethods, (method) ->
     cheerio.prototype[method] = -> @
 
+Backbone.sync = require('backbone-super-sync')
+
 if process
     Backbone.$ = cheerio
 else

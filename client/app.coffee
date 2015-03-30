@@ -23,13 +23,12 @@ ClientApp = Backbone.Model.extend
 
         @renderer = new Renderer(appViewContainer, options)
 
-        @controller.renderer = @renderer
-
         @router = new ClientRouter
             routes: options.routes
             templatesPath: options.templatesPath
             viewsPath: options.viewsPath
             controller: @controller
+            renderer: @renderer
 
         @router.bindRoutes(options.routes)
 
