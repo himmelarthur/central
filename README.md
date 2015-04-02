@@ -111,4 +111,4 @@ $ node index.js
 
 ## License
 
-MIT © [Arthur Himmel](arthurhimmel.com)
+MIT © [Arthur Himmel](http://arthurhimmel.com)
