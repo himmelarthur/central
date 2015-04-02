@@ -1,6 +1,6 @@
 "use strict"
 
-BaseView = require('../shared/base/view')
+BaseView = require('../shared/base/view.coffee')
 
 View = BaseView.extend({})
 

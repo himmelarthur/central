@@ -4,8 +4,8 @@ Backbone = require('../shared/backbone.coffee')
 $ = require('jquery')
 Backbone.$ = $
 _ = require('underscore')
-util = require('./util')
-AppViewContainer = require('./app_view_container')
+util = require('./util.coffee')
+AppViewContainer = require('./app_view_container.coffee')
 ClientRouter = require('./router.coffee')
 Renderer = require('./renderer.coffee')
 

@@ -2,7 +2,7 @@
 
 Backbone = require('../shared/backbone.coffee')
 _ = require('underscore')
-util = require('./util')
+util = require('./util.coffee')
 
 ClientRouter = Backbone.Router.extend
 
