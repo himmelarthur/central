@@ -16,17 +16,7 @@ module.exports = function (grunt) {
       },
       js: {
         src: ['*.js']
-      },
-      test: {
-        src: ['test/**/*.js']
       }
-    },
-    mochacli: {
-      options: {
-        reporter: 'nyan',
-        bail: true
-      },
-      all: ['test/*.js']
     },
     watch: {
       gruntfile: {
@@ -35,14 +25,10 @@ module.exports = function (grunt) {
       },
       js: {
         files: '<%= jshint.js.src %>',
-        tasks: ['jshint:js', 'mochacli']
-      },
-      test: {
-        files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'mochacli']
+        tasks: ['jshint:js']
       }
     }
   });
 
-  grunt.registerTask('default', ['jshint', 'mochacli']);
+  grunt.registerTask('default', ['jshint']);
 };
