@@ -1,6 +1,7 @@
 'use strict';
 
-var Server = require('./server/server');
+require('coffee-script/register');
+var Server = require('./server/server.coffee');
 
 exports.Server = Server;
 
