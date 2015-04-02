@@ -61,7 +61,7 @@ class MyController extends BaseController
     route1: @::view(MyView) (params) ->
         myModel = new MyModel(name: 'Tom', age: 18)
         return model: myModel
-    
+
     route2: @::viewWithCallback(MyView) (params, callback) ->
         myModel = new MyModel()
         myModel.fetch
