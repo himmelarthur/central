@@ -1,5 +1,6 @@
 "use strict"
 
+Backbone = require('./backbone.coffee')
 
 class Controller
 
@@ -21,5 +22,9 @@ Controller::viewWithCallback = (View) -> (control) -> ->
     if typeof params is 'function' then next = params
     viewOptions = control.apply @, [params, callback] || {}
 
+Controller.view = Controller::view
+Controller.viewWithCallback = Controller::viewWithCallback
+
+Controller.extend = Backbone.Model.extend
 
 module.exports = Controller
