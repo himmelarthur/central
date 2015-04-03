@@ -108,6 +108,23 @@ and then
 $ node index.js
 ```
 
+You also can integrate the __central.js__ app into your existing express.js server, by using it as a middleware :
+
+```js
+var central = require('central'),
+    express = require('express'),
+    app = express(),
+    server = central.createServer();
+
+server.configure({
+    // Configuration
+});
+
+app.use(server.expressApp);
+
+app.listen(3030);
+```
+
 
 ## License
 
