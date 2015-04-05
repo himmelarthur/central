@@ -1,4 +1,4 @@
-var BaseModel = require('central/shared/base/model');
+var BaseModel = require('central/shared/base').Model;
 
 var Article = BaseModel.extend({
 

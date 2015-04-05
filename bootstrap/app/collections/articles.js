@@ -1,4 +1,4 @@
-var BaseCollection = require('central/shared/base/collection');
+var BaseCollection = require('central/shared/base').Collection;
 
 var Articles = BaseCollection.extend({
 
