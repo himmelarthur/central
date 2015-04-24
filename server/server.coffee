@@ -17,7 +17,7 @@ class Server
             templatesPath: process.cwd() + '/app/templates/'
             templateAdapter: jade
 
-        @options = _.extend(options, defaultOptions)
+        @options = _.extend(defaultOptions, options)
 
         @expressApp = express()
 
